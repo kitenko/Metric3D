@@ -792,7 +792,7 @@ class RAFTDepthNormalDPT5(nn.Module):
         self.relu = nn.ReLU(inplace=True)
     
     def get_bins(self, bins_num):
-        depth_bins_vec = torch.linspace(math.log(self.min_val), math.log(self.max_val), bins_num, device="cuda")
+        depth_bins_vec = torch.linspace(math.log(self.min_val), math.log(self.max_val), bins_num)
         depth_bins_vec = torch.exp(depth_bins_vec)
         return depth_bins_vec
     
