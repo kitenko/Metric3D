@@ -248,6 +248,7 @@ class ConvTranspose2dLoRA(ConvTransposeLoRA):
 
 
 def compute_depth_expectation(prob, depth_values):
+    depth_values = depth_values.to(prob.device, dtype=prob.dtype)
     depth_values = depth_values.view(*depth_values.shape, 1, 1)
     depth = torch.sum(prob * depth_values, 1)
     return depth
